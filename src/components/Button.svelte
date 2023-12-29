@@ -4,7 +4,7 @@
     export let disabled = false
 </script>
 
-<button {type} {disabled} class={style)>
+<button {type} {disabled} class={style}>
     <slot></slot>
 </button>
 
