@@ -1,25 +1,27 @@
 <script>
-let firstname = 'Michael';
-let lastName = 'Njoroge';
-let color = 'blue';
+  import FeedbackList from "./components/FeedbackList.svelte";
+ 
+ let feedback = [
+  {
+    id: '1',
+    rating: '10',
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis temporibus quo qui ut? Sit, alias. Nostrum, enim tempora. Aperiam harum facere iste delectus! Consequuntur alias repellendus tempore vitae nostrum esse'
+  },
+  {
+    id: '2',
+    rating: '9',
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis temporibus quo qui ut? Sit, alias. Nostrum, enim tempora. Aperiam harum facere iste delectus! Consequuntur alias repellendus tempore vitae nostrum esse'
+  },
+  {
+    id: '3',
+    rating: '8',
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis temporibus quo qui ut? Sit, alias. Nostrum, enim tempora. Aperiam harum facere iste delectus! Consequuntur alias repellendus tempore vitae nostrum esse'
+  },
+ ]
 
-const toggle = ()  => {
-  color = color === 'blue' ? 'red' : 'blue'
-}
-
-$:name = firstname+ ' ' + lastName
 </script>
 
 <main>
-  <h1 style="color:{color}">Hello {name}!</h1>
-  <button on:click={toggle}>click</button>
+  <FeedbackList {feedback}/>
 </main>
-
-<style>
-  main{
-    text-align: center;
-    padding: 1rem;
-    /* max-width: 240px; */
-    margin: 0 auto;
-  }
-</style>
+ 
