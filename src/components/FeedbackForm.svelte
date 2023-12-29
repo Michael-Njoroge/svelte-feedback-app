@@ -3,9 +3,21 @@
 
     import Card from "./Card.svelte";
 
-    let btnDisable = false
+    let btnDisable = true
 
     let text = ''
+    let min =10
+    let message
+
+    const handleInput = () => {
+        if(text.trim().length <= min){
+            message = `Text must be atleast ${min} characters`
+            btnDisable = true
+        }else{
+            message = null
+            btnDisable = false
+        }
+    }
 
 </script>
 
@@ -15,11 +27,17 @@
 </header>
 
 <form>
+
     <!-- Rating Select -->
     <div class="input-group">
-        <input type="text" bind:value={text} placeholder="Tell us something that keeps you coming back">
+        <input type="text" on:input={handleInput} bind:value={text} placeholder="Tell us something that keeps you coming back">
         <Button disabled={btnDisable} type="submit">Send</Button>
     </div>
+    {#if message}
+    <div class="message">
+        {message}
+    </div>        
+    {/if}
 
 </form>
 </Card>
