@@ -3,16 +3,15 @@
     import Button from "./Button.svelte"
     import RatingSelect from "./RatingSelect.svelte";
     import Card from "./Card.svelte";
-    import { createEventDispatcher } from 'svelte';
-
+  import { FeedbackStore } from '../stores';
+ 
     let btnDisable = true
 
     let text = ''
     let rating = 10
     let min = 10
     let message
-
-    const dispatch = createEventDispatcher()
+ 
 
     const handleInput = () => {
         if(text.trim().length <= min){
@@ -33,7 +32,10 @@
                 text,
                 rating: +rating
             }
-            dispatch('addFeedback', newFeedback)
+
+            FeedbackStore.update((currentFeedback) => {
+              return [newFeedback, ...currentFeedback]
+            })
             text = ''
         }
 
