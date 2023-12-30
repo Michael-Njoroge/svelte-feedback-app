@@ -6,6 +6,7 @@
     let btnDisable = true
 
     let text = ''
+    let rating = 10
     let min =10
     let message
 
