@@ -1,6 +1,6 @@
 <script>
     import Button from "./Button.svelte"
-
+    import RatingSelect from "./RatingSelect.svelte";
     import Card from "./Card.svelte";
 
     let btnDisable = true
@@ -28,7 +28,7 @@
 </header>
 
 <form>
-
+    <RatingSelect/>
     <!-- Rating Select -->
     <div class="input-group">
         <input type="text" on:input={handleInput} bind:value={text} placeholder="Tell us something that keeps you coming back">

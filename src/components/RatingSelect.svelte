@@ -1,5 +1,9 @@
 <script>
+    let selected = 10
 
+    const onChange = () => {
+        console.log(1)
+    }
 </script>
 
 <ul class="rating">
