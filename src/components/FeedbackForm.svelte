@@ -1,7 +1,9 @@
 <script>
+    import {v4 as uuidv4} from 'uuid'
     import Button from "./Button.svelte"
     import RatingSelect from "./RatingSelect.svelte";
     import Card from "./Card.svelte";
+    import { createEventDispatcher } from 'svelte';
 
     let btnDisable = true
 
@@ -9,6 +11,8 @@
     let rating = 10
     let min =10
     let message
+
+    const dispatch = createEventDispatcher()
 
     const handleInput = () => {
         if(text.trim().length <= min){
@@ -23,7 +27,15 @@
     const handleSelect = e => rating = e.detail
 
     const handleSubmit = () => {
-        
+        if(text.trim().length > min){
+            const newFeedback = {
+                id: uuidv4(),
+                text,
+                rating: +rating
+            }
+            dispatch('addFeedback', newFeedback)
+        }
+
     }
 
 </script>
