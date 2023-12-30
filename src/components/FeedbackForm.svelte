@@ -20,6 +20,8 @@
         }
     }
 
+    const handleSelect = e => rating = e.detail
+
 </script>
 
 <Card>
@@ -28,7 +30,7 @@
 </header>
 
 <form>
-    <RatingSelect/>
+    <RatingSelect on:rating-select = {handleSelect}/>
     <!-- Rating Select -->
     <div class="input-group">
         <input type="text" on:input={handleInput} bind:value={text} placeholder="Tell us something that keeps you coming back">
