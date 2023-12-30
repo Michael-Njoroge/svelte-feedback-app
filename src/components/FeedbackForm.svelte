@@ -9,7 +9,7 @@
 
     let text = ''
     let rating = 10
-    let min =10
+    let min = 10
     let message
 
     const dispatch = createEventDispatcher()
@@ -34,6 +34,7 @@
                 rating: +rating
             }
             dispatch('addFeedback', newFeedback)
+            text = ''
         }
 
     }
