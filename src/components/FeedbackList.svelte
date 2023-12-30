@@ -1,8 +1,20 @@
 <script>
+import { onMount,onDestroy } from "svelte";
 import FeedbackItem from "./FeedbackItem.svelte";
 import { fade,scale } from "svelte/transition";
+import { FeedbackStore } from "../stores";
 
-    export let feedback = []
+let feedback = []
+
+const unsubscribe = FeedbackStore.subscribe((data) => feedback = data)
+
+onMount(() => {
+    console.log('mounted')
+})
+
+onDestroy(() => {
+    unsubscribe
+})
  
 </script>
 
