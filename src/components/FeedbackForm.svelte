@@ -22,6 +22,10 @@
 
     const handleSelect = e => rating = e.detail
 
+    const handleSubmit = () => {
+        
+    }
+
 </script>
 
 <Card>
@@ -29,7 +33,7 @@
     <h2>How would you rate your service with us?</h2>
 </header>
 
-<form>
+<form on:submit|preventDefault={handleSubmit}>
     <RatingSelect on:rating-select = {handleSelect}/>
     <!-- Rating Select -->
     <div class="input-group">
